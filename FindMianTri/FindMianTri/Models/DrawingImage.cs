@@ -12,6 +12,7 @@ namespace FindMianTri.Models
     {
         public void CreatLineLine()
         {
+            //目前都在 ColorMatch 中 没分离出来
 
         }
     }
