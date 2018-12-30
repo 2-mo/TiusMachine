@@ -1,0 +1,189 @@
+﻿<Page
+    x:Class="FindMianTri.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FindMianTri"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+
+
+        <StackPanel HorizontalAlignment="Center" AllowDrop="True"                    
+                    DragOver ="DropArea_DragOver"
+                    Drop="DropArea_Drop">
+
+
+            <RelativePanel x:Name="PicGrid"
+            Background="White" 
+            Width="800" 
+            Height="540" 
+            >
+
+                <!--临时的-->
+                <RelativePanel Name="TempPanel" Width="500" Height="300">
+                    <Rectangle Width="500" Height="300" Name="TempPanelImg">
+                        <Rectangle.Fill>
+                            <ImageBrush Stretch="UniformToFill" ImageSource="/Resources/20180805.jpg"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </RelativePanel>
+
+                <RelativePanel x:Name="PicPanel" 
+            Width="800" 
+            Height="522"           
+            Background="White"
+            >
+
+                    <!--图像零食 -->
+                    <Canvas>
+                        <Path  Name="PriImagePath2"
+                    Data="M0,432L-682,432C-701,432 -701,432 -701,413L-701,19C-701,0 -701,0 -682,0L0,0C19,0 19,0 19,19L19,413C19,432 19,432 0,432"  
+                        Canvas.Left="741" 
+                        Canvas.Top="40"  >
+                            <Path.Fill>
+                                <ImageBrush Stretch="UniformToFill" ImageSource="/Resources/20180805.jpg"  Opacity="1" />
+                            </Path.Fill>
+                        </Path>
+                    </Canvas>
+
+
+                </RelativePanel>
+
+                <!--阴影-->
+                <Image Name="ShadowImg" 
+                Stretch="Fill" 
+                Width="790"
+                Height="522"                  
+                Margin="0,10,0,0" 
+                Opacity="0.9"
+                VerticalAlignment="Top"
+                 RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+
+                <!--节气-->
+                <TextBlock 
+                Name="LunarHolDayTextBlock"
+                Text="" 
+                FontSize="48" 
+                Foreground="#cccccc" 
+                Opacity="0.3"
+                RelativePanel.AlignRightWithPanel="True" 
+                FontFamily="書體坊顏體㊣" 
+                Margin="0,16,16,0"
+                Visibility="Visible"/>
+
+                <!--图像 5:3 -->
+                <Canvas>
+                    <Path  Name="PriImagePath"
+                    Data="M0,432L-682,432C-701,432 -701,432 -701,413L-701,19C-701,0 -701,0 -682,0L0,0C19,0 19,0 19,19L19,413C19,432 19,432 0,432"  
+                        Canvas.Left="741" 
+                        Canvas.Top="40"  >
+                        <Path.Fill>
+                            <ImageBrush Stretch="UniformToFill" ImageSource="/Resources/20180805.jpg"  Opacity="1" />
+                        </Path.Fill>
+                    </Path>
+                </Canvas>
+                <!--时间戳-->
+                <TextBlock Name="TimestampTextBlock" 
+                       Text="B86D09" 
+                       Foreground="Black" 
+                       RelativePanel.AlignRightWithPanel="True" 
+                       Margin="0,48,46,0" 
+                       Opacity="0.4" 
+                       FontSize="20"
+                       FontFamily="00 Starmap Truetype"/>
+
+                <!--文字-->
+                <RelativePanel Name="TriColorPanel" Width="800" RelativePanel.AlignBottomWithPanel="True" Visibility="Visible" Background="Transparent" Margin="0,0,0,25">
+                    <StackPanel Orientation="Horizontal"  RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Margin="40,0,0,0">
+                        <TextBlock Name="YearTextblock"
+                        Text="玖" 
+                                   FontSize="24"
+                                   Foreground="#545454" 
+                                   VerticalAlignment="Center" FontFamily="書體坊顏體㊣" 
+                                   />
+                        <TextBlock Name="DaysTextblock"
+                        Text="000" 
+                                   FontSize="28"
+                                   Foreground="#545454" 
+                                   VerticalAlignment="Center" 
+                                   Margin="10,0,0,0" FontFamily="00 Starmap Truetype"/>
+                        <TextBlock 
+                        Text="·" 
+                                   FontSize="24"
+                                   Foreground="#545454" 
+                                   VerticalAlignment="Center" 
+                        FontWeight="Bold"
+                        Margin="2,0,2,5"/>
+                        <TextBlock Name="ColorNameTextblock"
+                        Text="水色" 
+                                   FontSize="24"
+                                   Foreground="#545454" 
+                                   VerticalAlignment="Center" FontFamily="書體坊顏體㊣" 
+                                   />
+                    </StackPanel>
+
+                    <TextBlock Name="RanTextBlock"
+                    Text="😕" 
+                           FontSize="16"
+                               Foreground="#545454" 
+                               RelativePanel.AlignRightWithPanel="True" 
+                               RelativePanel.AlignVerticalCenterWithPanel="True" 
+                               Margin="0,0,47,0" FontFamily="Segoe UI"/>
+                    <TextBlock Name="RidiTextBlock"
+                    Text="" 
+                           FontSize="16"
+                               Foreground="#545454" 
+                               RelativePanel.LeftOf="RanTextBlock"
+                               RelativePanel.AlignVerticalCenterWithPanel="True" 
+                               Margin="0,2,2,0" FontFamily="Segoe UI"/>
+
+                </RelativePanel>
+
+                <!--边框-->
+                <Border Name="ColorBorder" 
+                    BorderBrush="Red" 
+                    BorderThickness="2" 
+                    RelativePanel.AlignHorizontalCenterWithPanel="True" 
+                    RelativePanel.AlignVerticalCenterWithPanel="True">
+                    <Rectangle Width="776" Height="516" Fill="Transparent"/>
+                </Border>
+
+            </RelativePanel>
+
+            <TextBlock Name="MainColorText" Text="Please drag a photo in this panel." Margin="30,10,10,10" FontFamily="00 Starmap Truetype" />
+            <TextBlock Name="DisplayText" Text="I'm here!" Margin="30,0,10,10" FontFamily="00 Starmap Truetype" />
+
+            <!--色谱-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel x:Name="StatisticsGrid"
+            Background="Black" 
+            Width="580" 
+            Height="200" 
+            VerticalAlignment="Top"
+            Margin="0,0,0,0"
+            Padding="10"/>
+
+                <StackPanel x:Name="MainColorGrid"
+            Background="White" 
+            Width="200" 
+            Height="200" 
+            VerticalAlignment="Top"
+            Margin="20,0,0,0"
+            Padding="10"/>
+            </StackPanel>
+
+
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <!--用于输入介绍或吐槽-->
+                <TextBox Name="RidiTextBox" Text="" Width="320" Height="32" Background="{ThemeResource SystemControlAcrylicElementBrush}"/>
+
+                <Button Name="DiffuseBtn" Content="Apply" Margin="10,10,10,10" Click="DiffuseBtn_Click" />
+                <Button Name="DiffuseBtn2" Content="Save" Margin="340,10,10,10" Click="DiffuseBtn2_Click" />
+            </StackPanel>
+
+        </StackPanel>
+    </StackPanel>
+</Page>
