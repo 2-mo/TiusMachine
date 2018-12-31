@@ -29,20 +29,9 @@ namespace FindMianTri
         }
 
 
-        public void CreatLineLine()
-        {
-            for (int i = 0; i < 50; i++)
-            {
-                var line1 = new Line();
-                line1.Stroke = new SolidColorBrush(Windows.UI.Colors.Red);
-                line1.X2 = 400 - i / 2;
-                StatisticsGrid.Children.Add(line1);
-            }
-        }
-
         private void DiffuseBtn_Click(object sender, RoutedEventArgs e) //应用文案
         {
-            CreatLineLine();
+            
 
             RanTextBlock.Text = "";
             RidiTextBlock.Text = RidiTextBox.Text;

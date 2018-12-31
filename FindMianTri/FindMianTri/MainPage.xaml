@@ -11,7 +11,9 @@
     <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
 
 
-        <StackPanel HorizontalAlignment="Center" AllowDrop="True"                    
+        <StackPanel HorizontalAlignment="Center" 
+                    Orientation="Horizontal"
+                    AllowDrop="True"                    
                     DragOver ="DropArea_DragOver"
                     Drop="DropArea_Drop">
 
@@ -153,37 +155,51 @@
 
             </RelativePanel>
 
-            <TextBlock Name="MainColorText" Text="Please drag a photo in this panel." Margin="30,10,10,10" FontFamily="00 Starmap Truetype" />
-            <TextBlock Name="DisplayText" Text="I'm here!" Margin="30,0,10,10" FontFamily="00 Starmap Truetype" />
+            <StackPanel>
+                <TextBlock Name="MainColorText" Text="Please drag a photo in this panel." Margin="30,10,10,10" FontFamily="00 Starmap Truetype" />
+                <TextBlock Name="DisplayText" Text="I'm here!" Margin="30,0,10,10" FontFamily="00 Starmap Truetype" />
 
-            <!--色谱-->
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <StackPanel x:Name="StatisticsGrid"
+                <!--色谱-->
+                <StackPanel Orientation="Vertical" 
+                            HorizontalAlignment="left">
+                    <StackPanel x:Name="StatisticsGrid"
             Background="Black" 
-            Width="580" 
+            Width="400" 
             Height="200" 
             VerticalAlignment="Top"
             Margin="0,0,0,0"
             Padding="10"/>
 
-                <StackPanel x:Name="MainColorGrid"
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel x:Name="MainColorGrid"
             Background="White" 
             Width="200" 
             Height="200" 
             VerticalAlignment="Top"
             Margin="20,0,0,0"
             Padding="10"/>
+                    
+                    <StackPanel x:Name="MainColorGrid2"
+            Background="White" 
+            Width="200" 
+            Height="200" 
+            VerticalAlignment="Top"
+            Margin="20,0,0,0"
+            Padding="10"/>
+                    </StackPanel>
+
             </StackPanel>
 
 
-            <StackPanel Orientation="Horizontal" Margin="20">
-                <!--用于输入介绍或吐槽-->
-                <TextBox Name="RidiTextBox" Text="" Width="320" Height="32" Background="{ThemeResource SystemControlAcrylicElementBrush}"/>
+                <StackPanel Orientation="Horizontal" Margin="20">
+                    <!--用于输入介绍或吐槽-->
+                    <TextBox Name="RidiTextBox" Text="" Width="240" Height="32" Background="{ThemeResource SystemControlAcrylicElementBrush}"/>
 
-                <Button Name="DiffuseBtn" Content="Apply" Margin="10,10,10,10" Click="DiffuseBtn_Click" />
-                <Button Name="DiffuseBtn2" Content="Save" Margin="340,10,10,10" Click="DiffuseBtn2_Click" />
+                    <Button Name="DiffuseBtn" Content="Apply" Margin="10,10,10,10" Click="DiffuseBtn_Click" />
+                    <Button Name="DiffuseBtn2" Content="Save" Margin="20,10,10,10" Click="DiffuseBtn2_Click" />
+                </StackPanel>
             </StackPanel>
-
+            
         </StackPanel>
     </StackPanel>
 </Page>
