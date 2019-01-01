@@ -30,15 +30,12 @@ namespace FindMianTri
 
 
         private void DiffuseBtn_Click(object sender, RoutedEventArgs e) //应用文案
-        {
-            
-
+        {           
             RanTextBlock.Text = "";
             RidiTextBlock.Text = RidiTextBox.Text;
             MainColorText.Text = "Updated.";
 
             InitComposition();
-
         }
 
         private void DiffuseBtn2_Click(object sender, RoutedEventArgs e) //保存
@@ -197,10 +194,9 @@ namespace FindMianTri
                 }
             }
 
-
         }
 
-        // j新建视觉层画阴影
+        // 新建视觉层画阴影
         private void InitComposition()
         {
             Compositor compositor = ElementCompositionPreview.GetElementVisual(PicGrid).Compositor;
@@ -235,6 +231,85 @@ namespace FindMianTri
             layerVisual.Shadow = shadow;
 
             ElementCompositionPreview.SetElementChildVisual(PicGrid, layerVisual);
+        }
+
+
+
+        private async void TestBtn0_Click(object sender, RoutedEventArgs e)
+        {
+            MainColorText.Text = "Calculating...";
+
+            //获取主色调
+            ColorAbouts colorAbouts = new ColorAbouts();
+            FileAbouts fileAbouts = new FileAbouts();
+            ColorMatch colorMatch = new ColorMatch();
+
+            StorageFile file2 = await fileAbouts.GetPanelPic(TempPanel);
+
+            string comColor = await colorAbouts.GetPicMainColor(file2, StatisticsGrid);
+            string mainColor = "#" + comColor.Substring(3, 6);
+            TempPanelImg.Visibility = Visibility.Collapsed;
+
+            //颜色匹配&设置边框
+            int minNub = colorMatch.CompareDist(mainColor);
+
+            TriditionalColor triditionalColors = new TriditionalColor();
+            TridColor[] tridColors = new TridColor[630];
+            tridColors = triditionalColors.InitTriditionalColors();
+
+            ColorNameTextblock.Text = tridColors[minNub].Name;
+            SolidColorBrush triColor = colorAbouts.GetSolidColorBrush(tridColors[minNub].Hex);
+            ColorBorder.BorderBrush = triColor;
+
+            MainColorGrid.Background = triColor;
+
+            TimestampTextBlock.Text = "cydiodine";
+
+            //test
+            TempPanelImg.Visibility = Visibility.Visible;
+
+            WriteableBitmap wb2 = new WriteableBitmap(1000, 600);
+            string mainColorHex2 = "#000000";
+
+
+            // Set the source of the WriteableBitmap to the image stream
+            using (IRandomAccessStream fileStream2 = await file2.OpenAsync(FileAccessMode.Read))
+            {
+                try
+                {
+                    await wb2.SetSourceAsync(fileStream2);
+                    System.IO.File.Delete(file2.Path);
+                }
+                catch (TaskCanceledException)
+                {
+                    // The async action to set the WriteableBitmap's source may be canceled if the user clicks the button repeatedly
+                }
+            }
+
+            mainColorHex2 = ColorMatch.GetMajorColor2(wb2).ToString();
+            string mainColor2 = "#" + mainColorHex2.Substring(3, 6);
+            //DisplayText.Text = mainColor2;
+
+            TimestampTextBlock.Foreground = colorAbouts.GetSolidColorBrush(colorAbouts.InvertColor2(mainColor2));
+
+
+            //设置天数
+            TextHelper textHelper = new TextHelper();
+            DaysTextblock.Text = textHelper.CalculateDays().ToString();
+
+            //设置节气                  
+            LunarHolDayTextBlock.Text = TextHelper.GetLunarHolDay(DateTime.Now);
+
+            //设置表情
+            RanTextBlock.Text = textHelper.RandomEmoji();
+
+
+            MainColorText.Text = "Done!";
+        }
+
+        private void TestBtn1_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

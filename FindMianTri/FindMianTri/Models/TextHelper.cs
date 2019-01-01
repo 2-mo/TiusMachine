@@ -12,9 +12,9 @@ namespace FindMianTri.Models
         public int CalculateDays()
         {
             DateTime dt1 = DateTime.Now;
-            DateTime dt2 = Convert.ToDateTime("2018-1-1");
+            DateTime dt2 = Convert.ToDateTime("2018-12-31");
             TimeSpan span = dt1.Subtract(dt2);
-            int dayDiff = span.Days + 1;
+            int dayDiff = span.Days;
 
             return dayDiff;
         }

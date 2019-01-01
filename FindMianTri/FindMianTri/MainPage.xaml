@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+    <StackPanel Orientation="Horizontal" VerticalAlignment="Top" >
 
 
         <StackPanel HorizontalAlignment="Center" 
@@ -19,16 +19,16 @@
 
 
             <RelativePanel x:Name="PicGrid"
-            Background="White" 
-            Width="800" 
-            Height="540" 
-            >
+                        Background="White" 
+                        Width="800" 
+                        Height="540" 
+                        >
 
                 <!--临时的-->
                 <RelativePanel Name="TempPanel" Width="500" Height="300">
                     <Rectangle Width="500" Height="300" Name="TempPanelImg">
                         <Rectangle.Fill>
-                            <ImageBrush Stretch="UniformToFill" ImageSource="/Resources/20180805.jpg"/>
+                            <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/hakonesunset.jpg"/>
                         </Rectangle.Fill>
                     </Rectangle>
                 </RelativePanel>
@@ -46,7 +46,7 @@
                         Canvas.Left="741" 
                         Canvas.Top="40"  >
                             <Path.Fill>
-                                <ImageBrush Stretch="UniformToFill" ImageSource="/Resources/20180805.jpg"  Opacity="1" />
+                                <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/hakonesunset.jpg"  Opacity="1" />
                             </Path.Fill>
                         </Path>
                     </Canvas>
@@ -163,40 +163,42 @@
                 <StackPanel Orientation="Vertical" 
                             HorizontalAlignment="left">
                     <StackPanel x:Name="StatisticsGrid"
-            Background="Black" 
-            Width="400" 
-            Height="200" 
-            VerticalAlignment="Top"
-            Margin="0,0,0,0"
-            Padding="10"/>
+                                    Background="Wheat" 
+                                    Width="400" 
+                                    Height="200" 
+                                    VerticalAlignment="Top"
+                                    Margin="10,0,0,0"
+                                    Padding="10"/>
 
                     <StackPanel Orientation="Horizontal">
                         <StackPanel x:Name="MainColorGrid"
-            Background="White" 
-            Width="200" 
-            Height="200" 
-            VerticalAlignment="Top"
-            Margin="20,0,0,0"
-            Padding="10"/>
+                                    Background="White" 
+                                    Width="180" 
+                                    Height="180" 
+                                    VerticalAlignment="Top"
+                                    Margin="10"
+                                    Padding="10"/>
                     
                     <StackPanel x:Name="MainColorGrid2"
-            Background="White" 
-            Width="200" 
-            Height="200" 
-            VerticalAlignment="Top"
-            Margin="20,0,0,0"
-            Padding="10"/>
+                                    Background="White" 
+                                    Width="180" 
+                                    Height="180" 
+                                    VerticalAlignment="Top"
+                                    Margin="0,10,10,10"
+                                    Padding="10"/>
                     </StackPanel>
 
             </StackPanel>
 
 
-                <StackPanel Orientation="Horizontal" Margin="20">
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <Button Name="TestBtn0" Content="Go!" Margin="10,10,10,10" Click="TestBtn0_Click" />
+                    <Button Name="TestBtn1" Content="aa" Margin="10,10,10,10" Click="TestBtn1_Click" />
                     <!--用于输入介绍或吐槽-->
-                    <TextBox Name="RidiTextBox" Text="" Width="240" Height="32" Background="{ThemeResource SystemControlAcrylicElementBrush}"/>
+                    <TextBox Name="RidiTextBox" Text="" Width="200" Height="32" Background="{ThemeResource SystemControlAcrylicElementBrush}"/>
 
                     <Button Name="DiffuseBtn" Content="Apply" Margin="10,10,10,10" Click="DiffuseBtn_Click" />
-                    <Button Name="DiffuseBtn2" Content="Save" Margin="20,10,10,10" Click="DiffuseBtn2_Click" />
+                    <Button Name="DiffuseBtn2" Content="Save" Margin="10,10,10,10" Click="DiffuseBtn2_Click" />
                 </StackPanel>
             </StackPanel>
             

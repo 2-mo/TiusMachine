@@ -37,7 +37,7 @@ namespace FindMianTri.Models
 
         public async Task<string> GetImageProperties(StorageFile imageFile)
         {
-            string timestamp = "907784";
+            string timestamp = "181231";
             if (imageFile != null)
             {
                 ImageProperties props = await imageFile.Properties.GetImagePropertiesAsync();
