@@ -83,7 +83,7 @@
                         Canvas.Left="741" 
                         Canvas.Top="40"  >
                         <Path.Fill>
-                            <ImageBrush Stretch="UniformToFill" ImageSource="/Resources/20180805.jpg"  Opacity="1" />
+                            <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/hakonesunset.jpg"  Opacity="1" />
                         </Path.Fill>
                     </Path>
                 </Canvas>
